@@ -4,14 +4,14 @@
  */
 package Clases;
 
-import EstructurasDeDatos.*;
-
 /**
  *
  * @author Julian
  */
-public class GestorContactos {
-    private ListaDobleCircular contactos;
+public class Empresa extends Contacto {
+    //Atributos Diferenciales
     
-    //Metodos estaticos para llenar contactos
+    public Empresa(String name){
+        super(name);
+    }
 }

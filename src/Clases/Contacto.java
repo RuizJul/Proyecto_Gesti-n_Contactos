@@ -4,14 +4,13 @@
  */
 package Clases;
 
+import EstructurasDeDatos.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-
 /**
  *
  * @author Julian
  */
-public class Contacto implements Serializable {
+public abstract class Contacto implements Serializable {
     private String nombre;
     private ListaSimple telefonos;
     private ListaSimple emails;
@@ -38,47 +37,8 @@ public class Contacto implements Serializable {
     public void setNombre(String nuevoNombre) {
         this.nombre = nuevoNombre;
     }
-
-     // Métodos para teléfonos
-    public void agregarTelefono(String numero) {
-        telefonos.agregar(numero);
-    }
-
-    public boolean eliminarTelefono(String numero) {
-        return telefonos.eliminar(numero);
-    }
-
-    public boolean editarTelefono(String anterior, String nuevo) {
-        return telefonos.editar(anterior, nuevo);
-    }
-
-    // Métodos para emails
-    public void agregarEmail(String email) {
-        emails.agregar(email);
-    }
-
-    public boolean eliminarEmail(String email) {
-        return emails.eliminar(email);
-    }
-
-    public boolean editarEmail(String anterior, String nuevo) {
-        return emails.editar(anterior, nuevo);
-    }
-
-    // Métodos para redes sociales
-    public void agregarRedSocial(String red) {
-        redesSociales.agregar(red);
-    }
-
-    public boolean eliminarRedSocial(String red) {
-        return redesSociales.eliminar(red);
-    }
-
-    public boolean editarRedSocial(String anterior, String nuevo) {
-        return redesSociales.editar(anterior, nuevo);
-    }
-
-    public void mostrarDatos() {
+    
+    public void mostrarDatos() {//Metodo para probar el codigo, luego se debe borrar
         System.out.println("Nombre: " + nombre);
         System.out.println("Teléfonos:");
         telefonos.mostrar();
