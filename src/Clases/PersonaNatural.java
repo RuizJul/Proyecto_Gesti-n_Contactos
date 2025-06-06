@@ -4,14 +4,24 @@
  */
 package Clases;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Julian
  */
 public class PersonaNatural extends Contacto {
-    //Atributos diferenciales
+    private LocalDate cumpleanios;
+    
     
     public PersonaNatural(String name){
         super(name);
+        this.cumpleanios=null;
+        
+    }
+    
+    public PersonaNatural(String name, LocalDate cumpleanios){
+        super(name);
+        this.cumpleanios=cumpleanios;
     }
 }
