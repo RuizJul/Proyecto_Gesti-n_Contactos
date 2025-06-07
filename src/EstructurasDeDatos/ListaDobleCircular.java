@@ -11,7 +11,7 @@ package EstructurasDeDatos;
  */
 //Lista Doble que implementa los Nodos circulares
 public class ListaDobleCircular<T> {
-    private NodoDobleCircular cabeza;
+    private NodoDobleCircular <T> cabeza;
     
     public ListaDobleCircular(){//lista vacia
         this.cabeza=null;
@@ -49,31 +49,30 @@ public class ListaDobleCircular<T> {
         return false;
     }
 //Imprime la lista de "inicio" a "fin"    
-    public void mostrarAdelante(){
-        if(cabeza==null){
-            System.out.println("Lista vacia");
-            return;
+    private NodoDobleCircular<T> actual;
+
+    public T siguiente() {
+
+        if (actual != null) {
+            actual = actual.siguiente;
+        } else {
+            actual = cabeza;
         }
-        NodoDobleCircular actual=cabeza;
-        do{
-            System.out.println(actual.dato+" <-> ");
-            actual=actual.siguiente;
-        }while(actual!=cabeza);
-        System.out.println("(vuelve al inicio)");
+        return actual != null ? actual.dato : null;
     }
+
  //Imprime la lista de "fin" a "inicio"   
-    public void mostraAtras(){
-        if(cabeza==null){
-            System.out.println("Lista vacia");
-            return;
+    public T anterior() {
+        if (actual != null) {
+            actual = actual.anterior;
         }
-        NodoDobleCircular actual=cabeza.anterior;
-        do{
-            System.out.println(actual.dato+" <-> ");
-            actual=actual.anterior;
-        }while(actual!=cabeza.anterior);
-        System.out.println("(vuelve al final)");
+        return actual != null ? actual.dato : null;
     }
+    
+    public T getActual(){
+        return actual !=null ? actual.dato : null;
+    }
+    
  //imprime la cantidad de elementos de la lista   
     public int tamanio(){
         if(cabeza==null)return 0;
