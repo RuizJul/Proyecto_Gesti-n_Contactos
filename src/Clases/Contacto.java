@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public abstract class Contacto implements Serializable {
     private String nombre;
-    private ListaDobleCircular fotos;
+    private ListaDobleCircular<Foto> fotos;
     private ListaSimple telefonos;
     private ListaSimple emails;
     private ListaSimple redesSociales;
@@ -22,6 +22,7 @@ public abstract class Contacto implements Serializable {
     
     public Contacto(String name){
         this.nombre=name;
+        this.fotos=new ListaDobleCircular<>();
         this.telefonos= new ListaSimple();
         this.emails=new ListaSimple();
         this.redesSociales=new ListaSimple();
@@ -40,12 +41,14 @@ public abstract class Contacto implements Serializable {
     }
     
     public void agregarFoto(String ruta) {
-    fotos.agregar(ruta);
-}
+        Foto foto=new Foto(ruta);
+        fotos.agregar(foto);
+    }
 
-public boolean eliminarFoto(String ruta) {
-    return fotos.eliminar(ruta);
-}
+    public boolean eliminarFoto(String ruta) {
+        Foto foto=new Foto(ruta);
+        return fotos.eliminar(foto);
+    }
 
 
     public void mostrarDatos() {//Metodo para probar el codigo, luego se debe borrar
